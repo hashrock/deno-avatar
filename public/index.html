@@ -11,22 +11,32 @@
     <div>
       <h1>Deno Avatar</h1>
       <div class="card">
-        <img src="./avatar/FFAAAA" alt="" width="100" />
-
+        <img id="output" src="./avatar/FFAAAA" alt="" width="100" />
+        <p>
+          <button onclick="getRandom()">Get Random</button>
+        </p>
         <div>
           <input type="text" id="url">
         </div>
-
-        <p>
-          <button>Get Random</button>
-          <button>Copy URL</button>
-        </p>
       </div>
     </div>
 
     <script>
-      
+      const output = document.getElementById("output")
+      const url = document.getElementById("url")
 
+      const getRandom = () => {
+        const random = Math.floor(Math.random() * 16777215).toString(16)
+        output.src = `./avatar/${random}.svg`
+        const outurl = new URL(output.src,document.baseURI).href;
+        url.value = outurl
+      }
+
+      getRandom()
+
+      url.onclick = () => {
+        url.select()
+      }
     </script>
   </body>
 </html>
