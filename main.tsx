@@ -7,11 +7,13 @@ import {
 } from "https://deno.land/x/sift@0.4.2/mod.ts";
 import { Avatar1 } from "./Avatar1.tsx";
 import { Avatar2 } from "./Avatar2.tsx";
+import { calcChecksum, Random } from "./util.ts";
 
 interface IconProps {
-  color: string;
+  seed: string;
 }
 
+// taken from tailwind color pallete: 100
 const bgColors = [
   "#fee2e2",
   "#ffedd5",
@@ -23,7 +25,7 @@ const bgColors = [
   "#ccfbf1",
 ];
 
-// 200, 600, 900
+// taken from tailwind color pallete: 200, 600, 900
 const denoColors = [
   ["#fecaca", "#dc2626", "#7f1d1d"],
   ["#d9f99d", "#65a30d", "#365314"],
@@ -37,13 +39,17 @@ const components = [
 ];
 
 const Icon = (props: IconProps) => {
-  const bgColor = bgColors[Math.floor(Math.random() * bgColors.length)];
-  const denoColor = denoColors[Math.floor(Math.random() * denoColors.length)];
-  const component = components[Math.floor(Math.random() * components.length)];
+  if (props.seed === undefined) {
+    props.seed = "";
+  }
+  const checksum = calcChecksum(props.seed);
+  const rand = new Random(checksum);
+  const bgColor = bgColors[rand.nextInt(0, bgColors.length - 1)];
+  const denoColor = denoColors[rand.nextInt(0, denoColors.length - 1)];
+  const component = components[rand.nextInt(0, components.length - 1)];
 
   return (
     component(bgColor, denoColor)
-    // Avatar2(bgColor, denoColor)
   );
 };
 
@@ -60,7 +66,7 @@ const init = {
 serve({
   "/": serveStatic("public/index.html", { baseUrl: import.meta.url }),
   "/avatar/:seed": (request, params) =>
-    jsx(<Icon color={"#" + params?.seed} />, init),
+    jsx(<Icon seed={"" + params?.seed} />, init),
   "/:filename+": serveStatic("public", { baseUrl: import.meta.url }),
   404: () => jsx(<NotFound />, { status: 404 }),
 });
