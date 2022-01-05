@@ -60,7 +60,7 @@ const NotFound = () => (
 );
 
 const init = {
-  headers: [["content-type", "image/svg+xml"]],
+  headers: [["content-type", "image/svg+xml"], ["cache-control", "public, max-age=31536000"]],
 };
 
 serve({
