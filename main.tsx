@@ -33,14 +33,13 @@ const denoColors = [
 ];
 const components = [
   Avatar1,
-  Avatar2
-]
-
+  Avatar2,
+];
 
 const Icon = (props: IconProps) => {
   const bgColor = bgColors[Math.floor(Math.random() * bgColors.length)];
   const denoColor = denoColors[Math.floor(Math.random() * denoColors.length)];
-  const component = components[Math.floor(Math.random() * components.length)]
+  const component = components[Math.floor(Math.random() * components.length)];
 
   return (
     component(bgColor, denoColor)
@@ -65,4 +64,3 @@ serve({
   "/:filename+": serveStatic("public", { baseUrl: import.meta.url }),
   404: () => jsx(<NotFound />, { status: 404 }),
 });
-
