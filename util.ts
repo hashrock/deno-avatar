@@ -1,3 +1,5 @@
+// XorShift by kotofurumiya
+// https://sbfl.net/blog/2017/06/01/javascript-reproducible-random/
 export class Random {
   x: number;
   y: number;
