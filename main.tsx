@@ -58,9 +58,10 @@ const NotFound = () => (
     <h1>Page not found</h1>
   </div>
 );
-
+const now = new Date();
+now.setDate(now.getDate() + 14);
 const init = {
-  headers: [["content-type", "image/svg+xml"], ["cache-control", "public, max-age=31536000"]],
+  headers: [["content-type", "image/svg+xml"], ["Expires", now.toUTCString()], ["Cache-Control", "public, max-age=604800"]],
 };
 
 serve({
