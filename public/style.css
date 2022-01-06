@@ -57,3 +57,14 @@ button {
   margin: 6rem auto 0 auto;
   display: block;
 }
+
+.github-logo{
+  display: block;
+  width: 1.8rem;
+}
+
+.github-link{
+  margin: 1rem auto 0 auto;
+  display: block;
+  width: 1.8rem;
+}

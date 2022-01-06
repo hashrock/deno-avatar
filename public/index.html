@@ -11,18 +11,21 @@
   <body>
     <div>
       <div class="card">
-        <img class="cord" src="./cord.svg" alt="">
-        <img class="avatar" id="output" src="" alt="" width="150" />
+        <img class="cord" src="./cord.svg" alt="cord">
+        <img class="avatar" id="output" src="" alt="avatar" width="150" />
         <p>
           <button onclick="getRandom()">Get Random</button>
         </p>
         <div>
-          <input type="text" id="url">
+          <input title="Copy URL from here" type="text" id="url">
         </div>
       </div>
 
-      <img class="logo" src="./logo.svg" alt="">
-    </div>
+      <img class="logo" src="./logo.svg" alt="Deno Avatar Logo">
+      <a href="https://github.com/hashrock/deno-avatar" class="github-link">
+      <img class="github-logo" src="./github.svg" alt="GitHub Repo">
+      </a>
+  </div>
 
     <script>
       const output = document.getElementById("output")
