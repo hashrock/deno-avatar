@@ -5,10 +5,10 @@ import {
   serve,
   serveStatic,
 } from "https://deno.land/x/sift@0.4.2/mod.ts";
-import { Avatar1 } from "./Avatar1.tsx";
-import { Avatar2 } from "./Avatar2.tsx";
-import { Avatar3 } from "./Avatar3.tsx";
-import { Avatar4 } from "./Avatar4.tsx";
+import { Avatar1 } from "./avatars/Avatar1.tsx";
+import { Avatar2 } from "./avatars/Avatar2.tsx";
+import { Avatar3 } from "./avatars/Avatar3.tsx";
+import { Avatar4 } from "./avatars/Avatar4.tsx";
 import { calcChecksum, Random } from "./util.ts";
 
 interface IconProps {
