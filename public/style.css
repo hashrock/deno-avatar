@@ -13,16 +13,14 @@ h1 {
 
 .card{
   background: white;
-  padding: 3rem 3rem 2rem 3rem;
-  margin-top: 4rem;
+  padding: 4rem 3rem 2rem 3rem;
+  margin-top: 8rem;
   border-radius: 0.5rem;
   box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
   text-align: center;
+  position: relative;
 }
 
-img {
-  border-radius: 100%;
-}
 
 button {
   background: rgb(0, 0, 0);
@@ -36,7 +34,26 @@ button {
 #url{
   font-size: inherit;
   width: 400px;
-  border: solid 1px #ccc;
+  border: solid 1px #d1d1d1;
   padding: 0.5rem;
   border-radius: 4px;
+  text-align: center;
+  color: #666;
+}
+
+.cord{
+  position: absolute;
+  top: -100%;
+  width: 300px;
+  left: calc(50% - 150px);
+  height: 400px;
+}
+
+.avatar{
+  border-radius: 100%;
+}
+
+.logo{
+  margin: 6rem auto 0 auto;
+  display: block;
 }
