@@ -1,5 +1,5 @@
 /** @jsx h */
-import { h } from "https://deno.land/x/sift@0.4.2/mod.ts";
+import { h } from "https://deno.land/x/sift@0.5.0/mod.ts";
 
 export function Avatar3(bgColor: string, denoColor: string[]) {
   return (
