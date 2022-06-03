@@ -39,7 +39,7 @@ const components = [
   Avatar1,
   Avatar2,
   Avatar3,
-  Avatar4
+  Avatar4,
 ];
 
 const Icon = (props: IconProps) => {
@@ -65,7 +65,10 @@ const NotFound = () => (
 const now = new Date();
 now.setDate(now.getDate() + 14);
 const init = {
-  headers: [["content-type", "image/svg+xml"], ["Expires", now.toUTCString()], ["Cache-Control", "public, max-age=604800"]],
+  headers: [["content-type", "image/svg+xml"], ["Expires", now.toUTCString()], [
+    "Cache-Control",
+    "public, max-age=604800",
+  ]],
 };
 
 serve({
