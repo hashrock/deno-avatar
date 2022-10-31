@@ -1,10 +1,5 @@
 /** @jsx h */
-import {
-  h,
-  jsx,
-  serve,
-  serveStatic,
-} from "https://deno.land/x/sift@0.5.0/mod.ts";
+import { h, serve, serveStatic, jsx,} from "./deps.ts";
 import { Avatar1 } from "./avatars/Avatar1.tsx";
 import { Avatar2 } from "./avatars/Avatar2.tsx";
 import { Avatar3 } from "./avatars/Avatar3.tsx";
@@ -14,6 +9,8 @@ import { calcChecksum, Random } from "./util.ts";
 interface IconProps {
   seed: string;
 }
+
+const MAX = 256;
 
 // taken from tailwind color pallete: 100
 const bgColors = [
@@ -74,7 +71,7 @@ const init = {
 serve({
   "/": serveStatic("public/index.html", { baseUrl: import.meta.url }),
   "/avatar/:seed": (request, _connInfo, params) =>
-    jsx(<Icon seed={"" + params?.seed} />, init),
+  jsx(<Icon seed={""+params?.seed.length > 256 ? params?.seed.substr(0,256) : params?.seed} />, init),
   "/:filename+": serveStatic("public", { baseUrl: import.meta.url }),
   404: () => jsx(<NotFound />, { status: 404 }),
 });
