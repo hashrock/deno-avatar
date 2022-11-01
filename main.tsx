@@ -1,10 +1,5 @@
 /** @jsx h */
-import {
-  h,
-  jsx,
-  serve,
-  serveStatic,
-} from "https://deno.land/x/sift@0.5.0/mod.ts";
+import { h, jsx, serve, serveStatic } from "./deps.ts";
 import { Avatar1 } from "./avatars/Avatar1.tsx";
 import { Avatar2 } from "./avatars/Avatar2.tsx";
 import { Avatar3 } from "./avatars/Avatar3.tsx";
